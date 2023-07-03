@@ -78,12 +78,12 @@ float CalculatedEdx::getTruncMean(o2::tpc::TrackTPC& track, float low, float hig
   std::vector<int> stackVector;              ///< debug streamer vector for stack
   std::vector<unsigned char> sectorVector;   ///< debug streamer vector for sector
 
-  std::vector<float> effectiveLengthVector;  ///< debug streamer vector for efective length
-  std::vector<float> gainVector;             ///< debug streamer vector for gain
-  std::vector<float> residualCorrVector;     ///< debug streamer vector for residual dEdx correction
+  std::vector<float> effectiveLengthVector; ///< debug streamer vector for efective length
+  std::vector<float> gainVector;            ///< debug streamer vector for gain
+  std::vector<float> residualCorrVector;    ///< debug streamer vector for residual dEdx correction
 
-  std::vector<float> chargeVector;           ///< debug streamer vector for charge
-  std::vector<float> chargeNormVector;       ///< debug streamer vector for normalized charge with effectiveLength, gain and residual dEdx correction
+  std::vector<float> chargeVector;     ///< debug streamer vector for charge
+  std::vector<float> chargeNormVector; ///< debug streamer vector for normalized charge with effectiveLength, gain and residual dEdx correction
 
   if (mDebug) {
     regionVector.reserve(nClusters);
