@@ -84,15 +84,15 @@ void CalculatedEdx::calculatedEdx(o2::tpc::TrackTPC& track, dEdxInfo& output, fl
   std::vector<int> stackVector;              ///< debug streamer vector for stack
   std::vector<unsigned char> sectorVector;   ///< debug streamer vector for sector
 
-  std::vector<float> topologyCorrVector;     ///< debug streamer vector for simple topology correction
-  std::vector<float> topologyCorrTotVector;  ///< debug streamer vector for polynomial topology correction
-  std::vector<float> topologyCorrMaxVector;  ///< debug streamer vector for polynomial topology correction
-  std::vector<float> gainVector;             ///< debug streamer vector for gain
-  std::vector<float> residualCorrTotVector;  ///< debug streamer vector for residual dEdx correction
-  std::vector<float> residualCorrMaxVector;  ///< debug streamer vector for residual dEdx correction
+  std::vector<float> topologyCorrVector;    ///< debug streamer vector for simple topology correction
+  std::vector<float> topologyCorrTotVector; ///< debug streamer vector for polynomial topology correction
+  std::vector<float> topologyCorrMaxVector; ///< debug streamer vector for polynomial topology correction
+  std::vector<float> gainVector;            ///< debug streamer vector for gain
+  std::vector<float> residualCorrTotVector; ///< debug streamer vector for residual dEdx correction
+  std::vector<float> residualCorrMaxVector; ///< debug streamer vector for residual dEdx correction
 
-  std::vector<float> chargeTotVector;        ///< debug streamer vector for charge
-  std::vector<float> chargeMaxVector;        ///< debug streamer vector for charge
+  std::vector<float> chargeTotVector; ///< debug streamer vector for charge
+  std::vector<float> chargeMaxVector; ///< debug streamer vector for charge
 
   if (mDebug) {
     regionVector.reserve(nClusters);
