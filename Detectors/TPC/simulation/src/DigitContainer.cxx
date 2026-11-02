@@ -46,7 +46,7 @@ void DigitContainer::fillOutputContainer(std::vector<Digit>& output,
   auto& cdb = CDBInterface::instance();
 
   // ion tail per pad parameters
-  const CalPad* padParams[3] = {nullptr, nullptr, nullptr};
+  const CalPad* padParams[4] = {nullptr, nullptr, nullptr, nullptr};
 
   if (eleParam.doIonTailPerPad) {
     const auto& itSettings = IonTailSettings::Instance();
@@ -58,6 +58,9 @@ void DigitContainer::fillOutputContainer(std::vector<Digit>& output,
   }
   if (eleParam.doCommonModePerPad) {
     padParams[2] = &cdb.getCMkValues();
+  }
+  if (eleParam.doCommonModePerPadSaturation) {
+    padParams[3] = &cdb.getPedestals();
   }
 
   const bool needsPrevDigArray = eleParam.doIonTail || eleParam.doIonTailPerPad || eleParam.doSaturationTail;
@@ -163,7 +166,7 @@ void DigitContainer::reportSettings()
   auto& cdb = CDBInterface::instance();
   const auto& eleParam = ParameterElectronics::Instance();
   const auto& feeConfig = cdb.getFEEConfig();
-  LOGP(info, "ParameterElectronics:  doIonTail={}, doIonTailPerPad={}, doCommonModePerPad={}, doSaturationTail={}, doNoiseEmptyPads={}, applyDeadMap={}, commonModeCoupling={}, DigiMode={}",
-       eleParam.doIonTail, eleParam.doIonTailPerPad, eleParam.doCommonModePerPad, eleParam.doSaturationTail, eleParam.doNoiseEmptyPads, eleParam.applyDeadMap, eleParam.commonModeCoupling, (int)eleParam.DigiMode);
+  LOGP(info, "ParameterElectronics:  doIonTail={}, doIonTailPerPad={}, doCommonModePerPad={}, doCommonModePerPadSaturation={}, doSaturationTail={}, doNoiseEmptyPads={}, applyDeadMap={}, commonModeCoupling={}, DigiMode={}",
+       eleParam.doIonTail, eleParam.doIonTailPerPad, eleParam.doCommonModePerPad, eleParam.doCommonModePerPadSaturation, eleParam.doSaturationTail, eleParam.doNoiseEmptyPads, eleParam.applyDeadMap, eleParam.commonModeCoupling, (int)eleParam.DigiMode);
   feeConfig.printShort();
 }
